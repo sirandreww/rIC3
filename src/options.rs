@@ -134,6 +134,10 @@ pub struct PreprocessOptions {
     /// disable abc preprocess
     #[arg(long = "no-abc", default_value_t = false)]
     pub no_abc: bool,
+
+    /// disable CNF simplification
+    #[arg(long = "no-cnf", default_value_t = false)]
+    pub no_cnf: bool,
 }
 
 impl Default for Options {

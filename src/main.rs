@@ -54,7 +54,9 @@ fn main() {
             panic!("sec not support");
         }
         let ic3 = matches!(options.engine, options::Engine::IC3);
-        ts = ts.simplify(&[], ic3, !ic3);
+        if !options.preprocess.no_cnf {
+            ts = ts.simplify(&[], ic3, !ic3);
+        }
         let mut engine: Box<dyn Engine> = match options.engine {
             options::Engine::IC3 => Box::new(IC3::new(options.clone(), ts, pre_lemmas)),
             options::Engine::GIC3 => Box::new(general::IC3::new(options.clone(), ts)),
