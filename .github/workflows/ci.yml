@@ -25,5 +25,5 @@ jobs:
           git submodule update --init --recursive
           git submodule update --recursive --remote
 
-      - run: cargo +nightly build
-      - run: cargo +nightly build --release
+      - run: cargo build
+      - run: cargo build --release
